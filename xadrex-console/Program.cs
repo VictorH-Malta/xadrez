@@ -9,7 +9,7 @@ namespace xadrex_console
         {
             Tabuleiro tab = new Tabuleiro(8, 8);
 
-            Console.ReadLine();
+            Tela.imprimirTabuleiro(tab);
 
         }
     }
