@@ -20,5 +20,13 @@
             return Pecas[linha, coluna];
         }
 
+        //Método para incluir peça no tabuleiro
+        public void ColocarPeca(Peca p, Posicao pos)
+        {
+            //guarda a posição indicada e manda para o tabuleiro
+            Pecas[pos.Linha, pos.Coluna] = p;
+            p.Posicao = pos;
+        }
+
     }
 }
