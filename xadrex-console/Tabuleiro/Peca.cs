@@ -1,6 +1,6 @@
 ﻿namespace tabuleiro
 {
-    class Peca
+    abstract class Peca
     {
         public Posicao Posicao { get; set; }
         public Cor Cor { get; protected set; }
@@ -19,6 +19,11 @@
         {
             QteMovimentos++;
         }
+
+        //Criamos um método que retorna uma matriz booleana indicando os possíveis caminhos que uma peça pode executar
+        //É um método abstrato porque é muito genérico e depende de cada peça. Logo, sua implementação se dará dentro das classes das peças
+        public abstract bool[,] MovimentosPossiveis();
+        
 
     }
 }
