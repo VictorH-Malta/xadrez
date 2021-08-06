@@ -1,5 +1,6 @@
 ﻿using System;
 using tabuleiro;
+using xadrez;
 
 namespace xadrex_console
 {
@@ -30,6 +31,17 @@ namespace xadrex_console
                 Console.WriteLine();
             }
             Console.WriteLine("  a b c d e f g h");
+        }
+
+        public static PosicaoXadrez LerPosicaoXadrez()
+        {
+            //Lê a posição que o usuário digitar;
+            string s = Console.ReadLine();
+            char coluna = s[0];
+            int linha = int.Parse(s[1] + "");
+
+            //retorna instanciando as posições
+            return new PosicaoXadrez(coluna, linha);
         }
 
         //Método estático que diferencia e imprime as peças pretas como "Amarelas"

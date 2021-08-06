@@ -45,6 +45,18 @@
             p.Posicao = pos;
         }
 
+        public Peca RetirarPeca(Posicao pos)
+        {
+            if (Peca(pos) == null)
+            {
+                return null;
+            }
+            Peca aux = Peca(pos);
+            aux.Posicao = null;
+            Pecas[pos.Linha, pos.Coluna] = null;
+            return aux;
+        }
+
         //Implementando método que confere se a posição está dentro da matriz do tabuleiro 8x8
         public bool PosicaoValida(Posicao pos)
         {

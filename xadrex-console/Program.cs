@@ -11,19 +11,26 @@ namespace xadrex_console
             try
             {
                 //Tabuleiro de xadrez tem dimensão 8x8
-                Tabuleiro tab = new Tabuleiro(8, 8);
+                PartidaDeXadrez partida = new PartidaDeXadrez();
 
-                //Criando peças no tabuleiro através do método ColocarPeca(Peca p, Posicao pos)
-                tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 0));
-                tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(1, 3));
-                tab.ColocarPeca(new Rei(tab, Cor.Preta), new Posicao(0, 2));
+                //Enquanto tiver rolando ainda a partida de xadrez...
+                while (!partida.Terminada)
+                {
+                    Console.Clear(); //Limpa o console
+                    //chama a classe que imprime o tabuleiro na tela
+                    Tela.ImprimirTabuleiro(partida.Tab);
 
-                tab.ColocarPeca(new Torre(tab, Cor.Branca), new Posicao(6, 3));
-                tab.ColocarPeca(new Torre(tab, Cor.Branca), new Posicao(5, 5));
-                tab.ColocarPeca(new Rei(tab, Cor.Branca), new Posicao(7, 1));
+                    Console.WriteLine();
+                    Console.Write("Origem: ");
+                    //Lê uma posição e guarda em uma variável origem
+                    Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
+                    Console.Write("Destino: ");
+                    Posicao destino = Tela.LerPosicaoXadrez().ToPosicao();
 
-                //chama a classe que imprime o tabuleiro na tela
-                Tela.ImprimirTabuleiro(tab);
+                    partida.ExecutaMovimento(origem, destino);
+                }
+
+                
 
             }
             catch (TabuleiroException e)
