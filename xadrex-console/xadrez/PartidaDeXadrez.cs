@@ -102,7 +102,7 @@ namespace xadrez
         public void ValidarPosicaoDeDestino(Posicao origem, Posicao destino)
         {
             //Quando retorna true, cai no if naturalmente, não precisamos testar igualdade.
-            if (!Tab.Peca(origem).PodeMoverPara(destino))
+            if (!Tab.Peca(origem).MovimentoPossivel(destino))
             {
                 throw new TabuleiroException("Posição de destino inválida!");
             }
@@ -213,6 +213,7 @@ namespace xadrez
                             Peca pecaCapturada = ExecutaMovimento(origem, destino);
                             bool testeXeque = EstaEmCheque(cor);
                             DesfazMovimento(origem, destino, pecaCapturada);
+
                             if (!testeXeque)
                             {
                                 return false;
