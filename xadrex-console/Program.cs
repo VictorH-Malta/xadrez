@@ -45,6 +45,8 @@ namespace xadrex_console
                         Console.ReadLine();
                     }
                 }
+                Console.Clear(); //Limpa o console        
+                Tela.ImprimirPartida(partida);
 
             }
             catch (TabuleiroException e)
