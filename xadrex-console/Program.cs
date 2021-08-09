@@ -18,12 +18,8 @@ namespace xadrex_console
                 {
                     try
                     {
-                        Console.Clear(); //Limpa o console
-                                         //chama a classe que imprime o tabuleiro na tela
-                        Tela.ImprimirTabuleiro(partida.Tab);
-                        Console.WriteLine();
-                        Console.WriteLine("Turno: " + partida.Turno);
-                        Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
+                        Console.Clear(); //Limpa o console        
+                        Tela.ImprimirPartida(partida);//chama a classe que imprime o tabuleiro na tela
 
                         Console.WriteLine();
                         Console.Write("Origem: ");
